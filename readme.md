@@ -18,14 +18,29 @@ I have started this template with the idea that it will serve to initialize the 
 In the Main branch, we start with node, express and typescript. 
 I have also added libraries like dotenv and nodemon
 
+In the MongoDB branch, I have located the DB in MongoDB, used mongoose to define the models and Zod for the validation schemes.
+There are settings defined, to choose the working environment, "dev" or "prod" and the variables to be used.
+I have defined a middleware to validate that the user is authorized and another to validate the schema 'information that enters the db.
+We also have a utility to generate tokens.
 
 ## Features
 
+ - the main feature of this repo is the login and validation of the user, with the intention of being able to generate private routes and/or privatize information. From here we can define the needs according to the project, either to be able to implement an admin dashboard, private panel for the user, etc.
 
 ## Requirements
 To run the project, you need to have the following requirements installed:
 - Node.js
 - npm
+- mongoDB
+- mongoose
+
+- new libraries used:
+    - Cors
+    - morgan
+    - cookie-parser
+    - bcryptjs
+    - jsonwebtoken
+    - Zod
 
 
 ## Installation
@@ -45,6 +60,37 @@ cd folder_name
 $ npm install -y
 ```
 
+4. open a mongodb cluster:
+    - GO TO =>  https://www.mongodb.com/
+    - follow instrucccions
+    - copy the link like that to your .env files
+    
+```sh
+    mongodb+srv://ebrotoh:<db_password>@cluster0.zlzgzpb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+```
+
+5. install de newe dependencies,
+```sh
+$ npm install mongoose --save
+$ npm install jsonwebtoken
+$ npm i --save-dev @types/jsonwebtoken
+$ npm install morgan
+$ npm i --save-dev @types/morgan      
+$ npm install cors
+$ npm i --save-dev @types/cors         
+$ npm install cookie-parser
+$ npm i --save-dev @types/cookie-parser
+$ npm install bcryptjs
+$ npm i --save-dev @types/bcryptjs    
+$ npm install zod
+```
+or
+```sh
+$ npm i -D cookie-parser morgan bcryptjs cors zod
+$ npm i --save-dev @types/jsonwebtoken @types/morgan @types/cors @types/cookie-parser @types/bcryptjs 
+```
+
+
 ## Usage
 
 To run the project, follow these steps and commands:
@@ -60,7 +106,7 @@ Additionally, for each branch, you can find an example of the .env file in the c
 npm run dev
 ```
 
-3. test your endponts (with postman or other)
+3. test your endponts (with Postman or other)
 
 
 ## Technologies and Concepts
