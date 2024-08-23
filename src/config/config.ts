@@ -16,6 +16,7 @@ type TConfig = {
 type EnvironmentConfig = {
     app: AppConfig
     db: MongodbConfig;
+    secret_token: string
 }
 
 type MongodbConfig = {
@@ -34,15 +35,19 @@ const CONFIG: TConfig = {
         },
         db: {
             URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/development'
-        }
+        },
+        secret_token: process.env.SECRET_TOKEN || 'secret'
+
+
     },
     production: {
         app: {
-            PORT: process.env.PORT || 4002
+            PORT: process.env.PORT || 4001
         },
         db: {
             URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/production'
-        }
+        },
+        secret_token: process.env.SECRET_TOKEN || 'secret'
     }
 }
 
