@@ -1,9 +1,9 @@
 import dotenv from 'dotenv'
 
 if (process.env.NODE_ENV === 'production') {
-    dotenv.config({path: '.env.production'})
+    dotenv.config({ path: '.env.production' })
 } else {
-    dotenv.config({path: '.env.development'})
+    dotenv.config({ path: '.env.development' })
 }
 
 
@@ -15,7 +15,13 @@ type TConfig = {
 }
 type EnvironmentConfig = {
     app: AppConfig
+    db: MongodbConfig;
 }
+
+type MongodbConfig = {
+    URI: string
+}
+
 type AppConfig = {
     PORT: string | number
 }
@@ -25,12 +31,18 @@ const CONFIG: TConfig = {
     development: {
         app: {
             PORT: process.env.PORT || 4001
-        }, 
+        },
+        db: {
+            URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/development'
+        }
     },
     production: {
         app: {
             PORT: process.env.PORT || 4002
         },
+        db: {
+            URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/production'
+        }
     }
 }
 
