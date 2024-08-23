@@ -98,6 +98,8 @@ To run the project, follow these steps and commands:
 1. Create a `.env.development` & `.env.production` file in the root of your project with the following content:
 ```sh
 PORT=<PORT>
+MONGODB_URI='mongodb+srv://<USER>:<PASSWORD>@cluster0.zlzgzpb.mongodb.net/dev'
+SECRET_TOKEN:'your-secret-token'
 ```
 Additionally, for each branch, you can find an example of the .env file in the configuration folder named env.example. This file serves as a template for your configuration.
 
